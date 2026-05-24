@@ -23,7 +23,7 @@ const ReviewFeed = () => {
       </div>
 
       {/* Review cards - horizontal scroll on mobile */}
-      <div className="lg:hidden flex gap-3 overflow-x-auto pb-3 -mx-4 px-4 snap-x">
+      <div className="lg:hidden flex gap-3 overflow-x-auto pb-3 -mx-4 px-4 snap-x no-scrollbar">
         {reviews.map((review) => (
           <div
             key={review.id}
