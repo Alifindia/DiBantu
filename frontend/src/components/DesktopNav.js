@@ -23,11 +23,10 @@ const DesktopNav = () => {
       <div className="max-w-7xl mx-auto px-8 py-4 flex items-center justify-between">
         {/* Logo */}
         <button onClick={() => navigate('/')} className="flex flex-col text-left">
-          <img 
-            src="/assets/logo-dibantu.png" 
-            alt="DiBantu" 
-            className="h-10 w-auto"
-          />
+          <h1 className="font-extrabold leading-none text-2xl lg:text-3xl">
+            <span className="text-gray-900">Di</span>
+            <span className="text-green-700">Bantu</span>
+          </h1>
           <p className="text-gray-500 mt-1 text-xs lg:text-sm">Cari bantuan terpercaya, cepat, dan aman</p>
         </button>
 

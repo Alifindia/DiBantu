@@ -70,11 +70,10 @@ const HomePage = () => {
   // Brand logo component
   const BrandLogo = ({ size = 'normal' }) => (
     <div className="flex flex-col">
-      <img 
-        src="/assets/logo-dibantu.png" 
-        alt="DiBantu" 
-        className={size === 'large' ? 'h-12 lg:h-16 w-auto' : 'h-10 w-auto'}
-      />
+      <h1 className={`font-extrabold leading-none ${size === 'large' ? 'text-3xl lg:text-4xl' : 'text-2xl lg:text-3xl'}`}>
+        <span className="text-gray-900">Di</span>
+        <span className="text-green-700">Bantu</span>
+      </h1>
       <p className={`text-gray-500 mt-1 ${size === 'large' ? 'text-sm lg:text-base' : 'text-xs lg:text-sm'}`}>
         Cari bantuan terpercaya, cepat, dan aman
       </p>
