@@ -24,8 +24,8 @@ const DesktopNav = () => {
         {/* Logo */}
         <button onClick={() => navigate('/')} className="flex flex-col text-left">
           <h1 className="font-extrabold leading-none text-2xl lg:text-3xl">
-            <span className="text-gray-900">Be</span>
-            <span className="text-green-700">Bantu</span>
+            <span className="text-gray-900">Di</span>
+            <span className="text-green-700">bantu</span>
           </h1>
           <p className="text-gray-500 mt-1 text-xs lg:text-sm">Cari bantuan terpercaya, cepat, dan aman</p>
         </button>

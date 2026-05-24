@@ -69,7 +69,7 @@ const WarTiketFormPage = () => {
           <div>
             <p className="font-semibold text-gray-900 text-sm">⚠️ Penting!</p>
             <p className="text-xs text-gray-700 mt-1">
-              Helper hanya membantu proses manual melalui platform resmi. <strong>TIDAK menggunakan bot, TIDAK bypass antrean, TIDAK minta password akun Anda.</strong> BeBantu dan helper tidak menjamin tiket pasti didapat.
+              Helper hanya membantu proses manual melalui platform resmi. <strong>TIDAK menggunakan bot, TIDAK bypass antrean, TIDAK minta password akun Anda.</strong> Dibantu dan helper tidak menjamin tiket pasti didapat.
             </p>
           </div>
         </div>

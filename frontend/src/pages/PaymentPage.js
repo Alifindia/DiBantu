@@ -93,7 +93,7 @@ const PaymentPage = () => {
                 <div>
                   <h3 className="font-bold text-gray-900 mb-1">Pembayaran Aman</h3>
                   <p className="text-xs lg:text-sm text-gray-600">
-                    Dana Anda ditahan oleh BeBantu dan diteruskan ke teknisi setelah pekerjaan selesai dikonfirmasi.
+                    Dana Anda ditahan oleh Dibantu dan diteruskan ke teknisi setelah pekerjaan selesai dikonfirmasi.
                   </p>
                 </div>
               </div>

@@ -71,8 +71,8 @@ const HomePage = () => {
   const BrandLogo = ({ size = 'normal' }) => (
     <div className="flex flex-col">
       <h1 className={`font-extrabold leading-none ${size === 'large' ? 'text-3xl lg:text-4xl' : 'text-2xl lg:text-3xl'}`}>
-        <span className="text-gray-900">Be</span>
-        <span className="text-green-700">Bantu</span>
+        <span className="text-gray-900">Di</span>
+        <span className="text-green-700">bantu</span>
       </h1>
       <p className={`text-gray-500 mt-1 ${size === 'large' ? 'text-sm lg:text-base' : 'text-xs lg:text-sm'}`}>
         Cari bantuan terpercaya, cepat, dan aman
@@ -108,7 +108,7 @@ const HomePage = () => {
                   {currentSlide === 0 && (
                     <div className="animate-fade-in" key="slide-1">
                       <h2 className="text-2xl lg:text-5xl font-extrabold leading-tight mb-3 lg:mb-4" data-testid="hero-title">
-                        Bantuan yang Anda butuhkan, ada di BeBantu.
+                        Bantuan yang Anda butuhkan, ada di Dibantu.
                       </h2>
                       <p className="text-green-50 text-sm lg:text-xl leading-snug">
                         Temukan layanan rumah dan bantuan harian dari mitra lokal yang terpercaya.
@@ -123,7 +123,7 @@ const HomePage = () => {
                         Mencari bantuan tidak harus bikin khawatir.
                       </h2>
                       <p className="text-green-50 text-sm lg:text-xl leading-snug">
-                        Dari AC, plumbing, cleaning, listrik, renovasi, hingga bantuan harian, semua lebih praktis di BeBantu.
+                        Dari AC, plumbing, cleaning, listrik, renovasi, hingga bantuan harian, semua lebih praktis di Dibantu.
                       </p>
                     </div>
                   )}
@@ -132,7 +132,7 @@ const HomePage = () => {
                   {currentSlide === 2 && (
                     <div className="animate-fade-in" key="slide-3">
                       <h2 className="text-2xl lg:text-5xl font-extrabold leading-tight mb-3 lg:mb-4">
-                        BeBantu ingin bantuan jadi lebih mudah dijangkau.
+                        Dibantu ingin bantuan jadi lebih mudah dijangkau.
                       </h2>
                       <p className="text-green-50 text-sm lg:text-xl leading-snug">
                         Untuk rumah yang perlu dirawat, keluarga yang butuh solusi, dan mitra lokal yang membutuhkan peluang kerja.
@@ -159,7 +159,7 @@ const HomePage = () => {
                 <div className="absolute right-0 bottom-0 lg:right-4 w-44 h-56 lg:w-96 lg:h-[28rem] flex items-end justify-end">
                   <img
                     src={TECHNICIAN_IMG}
-                    alt="Mitra BeBantu"
+                    alt="Mitra Dibantu"
                     className="h-full w-auto object-contain object-bottom drop-shadow-2xl"
                     data-testid="hero-technician-image"
                   />
