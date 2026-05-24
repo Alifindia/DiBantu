@@ -16,6 +16,15 @@ const HomePage = () => {
   const [nearbyTechnicians, setNearbyTechnicians] = useState([]);
   const [categories, setCategories] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Auto-rotate slides every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % 3);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     (async () => {
@@ -86,33 +95,80 @@ const HomePage = () => {
         </div>
       </header>
 
-      {/* Hero Section - matches new design with real technician photo */}
+      {/* Hero Section - Carousel with 3 slides */}
       <section className="px-4 pt-3 lg:pt-8 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="bg-gradient-to-br from-green-700 via-green-600 to-emerald-700 rounded-3xl overflow-hidden shadow-xl relative">
-            <div className="px-6 pt-6 pb-32 lg:px-12 lg:pt-12 lg:pb-32 flex items-start gap-4 lg:gap-8 relative">
-              <div className="flex-1 text-white relative z-10 max-w-[60%] lg:max-w-[55%]">
-                <h2 className="text-2xl lg:text-5xl font-extrabold leading-tight mb-3 lg:mb-4" data-testid="hero-title">
-                  Butuh bantuan<br />apa hari ini?
-                </h2>
-                <p className="text-green-50 text-sm lg:text-xl leading-snug">
-                  Temukan jasa terpercaya,<br />cepat & bergaransi.
-                </p>
-              </div>
+            {/* Carousel Slides */}
+            <div className="relative">
+              {/* Slide Content */}
+              <div className="px-6 pt-6 pb-32 lg:px-12 lg:pt-12 lg:pb-32 flex items-start gap-4 lg:gap-8 relative overflow-hidden">
+                <div className="flex-1 text-white relative z-10 max-w-[60%] lg:max-w-[55%]">
+                  {/* Slide 1 */}
+                  {currentSlide === 0 && (
+                    <div className="animate-fade-in" key="slide-1">
+                      <h2 className="text-2xl lg:text-5xl font-extrabold leading-tight mb-3 lg:mb-4" data-testid="hero-title">
+                        Bantuan yang Anda butuhkan, ada di BeBantu.
+                      </h2>
+                      <p className="text-green-50 text-sm lg:text-xl leading-snug">
+                        Temukan layanan rumah dan bantuan harian dari mitra lokal yang terpercaya.
+                      </p>
+                    </div>
+                  )}
 
-              {/* Technician Image - real photo */}
-              <div className="absolute right-0 bottom-0 lg:right-4 w-44 h-56 lg:w-96 lg:h-[28rem] flex items-end justify-end">
-                <img
-                  src={TECHNICIAN_IMG}
-                  alt="Teknisi BeBantu"
-                  className="h-full w-auto object-contain object-bottom drop-shadow-2xl"
-                  data-testid="hero-technician-image"
-                />
+                  {/* Slide 2 */}
+                  {currentSlide === 1 && (
+                    <div className="animate-fade-in" key="slide-2">
+                      <h2 className="text-2xl lg:text-5xl font-extrabold leading-tight mb-3 lg:mb-4">
+                        Mencari bantuan tidak harus bikin khawatir.
+                      </h2>
+                      <p className="text-green-50 text-sm lg:text-xl leading-snug">
+                        Dari AC, plumbing, cleaning, listrik, renovasi, hingga bantuan harian, semua lebih praktis di BeBantu.
+                      </p>
+                    </div>
+                  )}
+
+                  {/* Slide 3 */}
+                  {currentSlide === 2 && (
+                    <div className="animate-fade-in" key="slide-3">
+                      <h2 className="text-2xl lg:text-5xl font-extrabold leading-tight mb-3 lg:mb-4">
+                        BeBantu ingin bantuan jadi lebih mudah dijangkau.
+                      </h2>
+                      <p className="text-green-50 text-sm lg:text-xl leading-snug">
+                        Untuk rumah yang perlu dirawat, keluarga yang butuh solusi, dan mitra lokal yang membutuhkan peluang kerja.
+                      </p>
+                    </div>
+                  )}
+
+                  {/* Dots Indicator */}
+                  <div className="flex items-center gap-2 mt-6 lg:mt-8">
+                    {[0, 1, 2].map((index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentSlide(index)}
+                        className={`h-2 rounded-full transition-all ${
+                          currentSlide === index ? 'w-8 bg-white' : 'w-2 bg-white/40 hover:bg-white/60'
+                        }`}
+                        data-testid={`slide-dot-${index}`}
+                      />
+                    ))}
+                  </div>
+                </div>
+
+                {/* Technician Image - real photo */}
+                <div className="absolute right-0 bottom-0 lg:right-4 w-44 h-56 lg:w-96 lg:h-[28rem] flex items-end justify-end">
+                  <img
+                    src={TECHNICIAN_IMG}
+                    alt="Mitra BeBantu"
+                    className="h-full w-auto object-contain object-bottom drop-shadow-2xl"
+                    data-testid="hero-technician-image"
+                  />
+                </div>
               </div>
             </div>
 
             {/* Search Bar (overlapping hero bottom) */}
-            <div className="absolute bottom-4 left-4 right-4 lg:bottom-8 lg:left-8 lg:right-8">
+            <div className="absolute bottom-4 left-4 right-4 lg:bottom-8 lg:left-8 lg:right-8 z-20">
               <div className="bg-white rounded-full shadow-2xl px-5 py-3 lg:px-6 lg:py-4 flex items-center gap-3">
                 <input
                   type="text"
