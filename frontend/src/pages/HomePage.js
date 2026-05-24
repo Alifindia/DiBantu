@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Search, Snowflake, Zap, Droplets, Sparkles, Dog, Bug, Camera, ShieldCheck, Lock, Tag, Bell, MapPin } from 'lucide-react';import BottomNav from '../components/BottomNav';
+import { Search, Snowflake, Zap, Droplets, Sparkles, Dog, Bug, Camera, ShieldCheck, Lock, Tag, Bell, MapPin, Hammer, Truck, PawPrint } from 'lucide-react';
+import BottomNav from '../components/BottomNav';
 import DesktopNav from '../components/DesktopNav';
 import ActivityFeed from '../components/ActivityFeed';
 import { getCategories, getTechnicians } from '../api/api';
@@ -28,7 +29,19 @@ const HomePage = () => {
     })();
   }, []);
 
-  const iconMap = { snowflake: Snowflake, zap: Zap, droplets: Droplets, sparkles: Sparkles, dog: Dog, bug: Bug, camera: Camera };
+  const iconMap = { 
+    snowflake: Snowflake, 
+    zap: Zap, 
+    droplets: Droplets, 
+    sparkles: Sparkles, 
+    'paw-print': PawPrint,
+    dog: Dog, 
+    bug: Bug, 
+    camera: Camera,
+    hammer: Hammer,
+    truck: Truck,
+    sparkle: Sparkles
+  };
   const colorMap = {
     blue: 'bg-blue-100 text-blue-600',
     yellow: 'bg-yellow-100 text-yellow-600',
@@ -37,6 +50,9 @@ const HomePage = () => {
     pink: 'bg-pink-100 text-pink-600',
     red: 'bg-red-100 text-red-600',
     indigo: 'bg-indigo-100 text-indigo-600',
+    orange: 'bg-orange-100 text-orange-600',
+    teal: 'bg-teal-100 text-teal-600',
+    brown: 'bg-amber-100 text-amber-700',
   };
 
   // Brand logo component
@@ -124,7 +140,7 @@ const HomePage = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-4 sm:grid-cols-5 lg:grid-cols-7 gap-3 lg:gap-4">
+          <div className="grid grid-cols-4 lg:grid-cols-8 gap-3 lg:gap-4">
             {categories.map((category) => {
               const Icon = iconMap[category.icon] || Sparkles;
               const colorClass = colorMap[category.color] || 'bg-gray-100 text-gray-600';

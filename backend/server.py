@@ -30,12 +30,13 @@ api_router = APIRouter(prefix="/api")
 # Enums
 class ServiceCategory(str, Enum):
     AC = "AC"
-    LISTRIK = "Listrik"
     PLUMBING = "Plumbing"
-    CLEANING = "Cleaning"
+    CLEANING_PEST = "Cleaning & Pest"
+    LISTRIK_CCTV = "Listrik & CCTV"
+    RENOVASI = "Renovasi"
+    PINDAHAN_ANGKUT = "Pindahan & Angkut"
+    BEAUTY_EVENT = "Beauty & Event"
     PET_CARE = "Pet Care"
-    PEST_CONTROL = "Pest Control"
-    SMART_HOME = "Smart Home"
 
 class OrderStatus(str, Enum):
     PENDING = "pending"
