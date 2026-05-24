@@ -38,7 +38,7 @@ const Header = ({ title, subtitle, showBack = false, className = '' }) => {
           <div className="flex items-center gap-1 justify-end">
             <span className="font-extrabold text-xl">
               <span className="text-gray-900">Di</span>
-              <span className="text-green-700">bantu</span>
+              <span className="text-green-700">Bantu</span>
             </span>
           </div>
           <p className="text-xs text-gray-500">Cari bantuan terpercaya, cepat, dan aman</p>

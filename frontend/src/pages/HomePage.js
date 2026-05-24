@@ -72,7 +72,7 @@ const HomePage = () => {
     <div className="flex flex-col">
       <h1 className={`font-extrabold leading-none ${size === 'large' ? 'text-3xl lg:text-4xl' : 'text-2xl lg:text-3xl'}`}>
         <span className="text-gray-900">Di</span>
-        <span className="text-green-700">bantu</span>
+        <span className="text-green-700">Bantu</span>
       </h1>
       <p className={`text-gray-500 mt-1 ${size === 'large' ? 'text-sm lg:text-base' : 'text-xs lg:text-sm'}`}>
         Cari bantuan terpercaya, cepat, dan aman
