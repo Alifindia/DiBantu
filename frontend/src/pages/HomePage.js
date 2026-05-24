@@ -62,11 +62,11 @@ const HomePage = () => {
   const BrandLogo = ({ size = 'normal' }) => (
     <div className="flex flex-col">
       <h1 className={`font-extrabold leading-none ${size === 'large' ? 'text-3xl lg:text-4xl' : 'text-2xl lg:text-3xl'}`}>
-        <span className="text-gray-900">Temu</span>
-        <span className="text-green-700">Jasa</span>
+        <span className="text-gray-900">Be</span>
+        <span className="text-green-700">Bantu</span>
       </h1>
       <p className={`text-gray-500 mt-1 ${size === 'large' ? 'text-sm lg:text-base' : 'text-xs lg:text-sm'}`}>
-        Jasa rumah & digital terpercaya
+        Cari bantuan terpercaya, cepat, dan aman
       </p>
     </div>
   );
@@ -104,7 +104,7 @@ const HomePage = () => {
               <div className="absolute right-0 bottom-0 lg:right-4 w-44 h-56 lg:w-96 lg:h-[28rem] flex items-end justify-end">
                 <img
                   src={TECHNICIAN_IMG}
-                  alt="Teknisi TemuJasa"
+                  alt="Teknisi BeBantu"
                   className="h-full w-auto object-contain object-bottom drop-shadow-2xl"
                   data-testid="hero-technician-image"
                 />

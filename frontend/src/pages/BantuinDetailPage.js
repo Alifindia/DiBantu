@@ -305,7 +305,7 @@ const BantuinDetailPage = () => {
             <div>
               <p className="font-semibold text-gray-900 text-sm">🛡️ Pembayaran Aman</p>
               <p className="text-xs text-gray-600 mt-1">
-                Dana ditahan TemuJasa dan dicairkan ke helper setelah Anda klik "Selesai".
+                Dana ditahan BeBantu dan dicairkan ke helper setelah Anda klik "Selesai".
               </p>
             </div>
           </div>

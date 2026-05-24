@@ -1,40 +1,48 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, MapPin } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 
-const Header = ({ title, showBack = false, showLocation = false }) => {
+const Header = ({ title, subtitle, showBack = false, className = '' }) => {
   const navigate = useNavigate();
 
   return (
-    <header className="bg-green-700 text-white sticky top-0 z-50 shadow-md">
-      <div className="max-w-md mx-auto px-4 py-4 flex items-center justify-between">
+    <header className={`bg-white shadow-sm ${className}`}>
+      <div className="max-w-7xl mx-auto px-4 lg:px-8 py-4 flex items-center justify-between">
+        {/* Left side */}
         <div className="flex items-center gap-3">
           {showBack && (
-            <button 
+            <button
               onClick={() => navigate(-1)}
-              className="hover:bg-green-600 p-1 rounded-full transition"
-              data-testid="back-button"
+              className="p-1 hover:bg-gray-100 rounded-full transition"
+              data-testid="header-back-button"
             >
-              <ArrowLeft size={24} />
+              <ArrowLeft size={24} className="text-gray-700" />
             </button>
           )}
-          {!showBack && !title && (
-            <div className="flex items-center gap-2">
-              <div className="bg-white p-2 rounded-lg">
-                <span className="text-green-700 font-bold text-xl">🏠</span>
-              </div>
-              <span className="font-bold text-lg">TemuJasa</span>
-            </div>
-          )}
-          {title && <h1 className="font-bold text-lg">{title}</h1>}
-        </div>
-        
-        {showLocation && (
-          <div className="flex items-center gap-1 text-sm" data-testid="location-display">
-            <MapPin size={16} />
-            <span>Jl. Melati No.10, Depok</span>
+          <div>
+            {title && (
+              <h1 className="text-lg lg:text-2xl font-bold text-gray-900">
+                {title}
+              </h1>
+            )}
+            {subtitle && (
+              <p className="text-xs lg:text-sm text-gray-500 mt-0.5">
+                {subtitle}
+              </p>
+            )}
           </div>
-        )}
+        </div>
+
+        {/* Right side - Logo for desktop */}
+        <div className="hidden lg:flex flex-col text-right">
+          <div className="flex items-center gap-1 justify-end">
+            <span className="font-extrabold text-xl">
+              <span className="text-gray-900">Be</span>
+              <span className="text-green-700">Bantu</span>
+            </span>
+          </div>
+          <p className="text-xs text-gray-500">Cari bantuan terpercaya, cepat, dan aman</p>
+        </div>
       </div>
     </header>
   );
