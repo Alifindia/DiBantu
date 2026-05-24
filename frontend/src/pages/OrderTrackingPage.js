@@ -162,7 +162,7 @@ const OrderTrackingPage = () => {
                 <div className="flex-1">
                   <p className="font-semibold text-gray-900 text-sm">Butuh Bantuan?</p>
                   <button className="text-xs text-blue-700 font-medium hover:underline">
-                    Hubungi CS Dibantu
+                    Hubungi CS DiBantu
                   </button>
                 </div>
               </div>

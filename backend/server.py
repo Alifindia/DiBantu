@@ -301,7 +301,7 @@ def validate_bantuin_request(title: str, detail: str) -> tuple[bool, str]:
 
 @api_router.get("/")
 async def root():
-    return {"message": "Dibantu API - Service Marketplace"}
+    return {"message": "DiBantu API - Service Marketplace"}
 
 # Categories endpoint
 @api_router.get("/categories")
@@ -700,7 +700,7 @@ async def create_bantuin_request(input: BantuinCreate):
         if violation_type == "technical":
             raise HTTPException(
                 status_code=400, 
-                detail="Layanan ini tersedia di kategori utama Dibantu. Silakan pilih kategori yang sesuai agar ditangani oleh teknisi profesional."
+                detail="Layanan ini tersedia di kategori utama DiBantu. Silakan pilih kategori yang sesuai agar ditangani oleh teknisi profesional."
             )
         else:  # safety
             raise HTTPException(

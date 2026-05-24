@@ -108,7 +108,7 @@ const HomePage = () => {
                   {currentSlide === 0 && (
                     <div className="animate-fade-in" key="slide-1">
                       <h2 className="text-2xl lg:text-5xl font-extrabold leading-tight mb-3 lg:mb-4" data-testid="hero-title">
-                        Bantuan yang Anda butuhkan, ada di Dibantu.
+                        Bantuan yang Anda butuhkan, ada di DiBantu.
                       </h2>
                       <p className="text-green-50 text-sm lg:text-xl leading-snug">
                         Temukan layanan rumah dan bantuan harian dari mitra lokal yang terpercaya.
@@ -123,7 +123,7 @@ const HomePage = () => {
                         Mencari bantuan tidak harus bikin khawatir.
                       </h2>
                       <p className="text-green-50 text-sm lg:text-xl leading-snug">
-                        Dari AC, plumbing, cleaning, listrik, renovasi, hingga bantuan harian, semua lebih praktis di Dibantu.
+                        Dari AC, plumbing, cleaning, listrik, renovasi, hingga bantuan harian, semua lebih praktis di DiBantu.
                       </p>
                     </div>
                   )}
@@ -132,7 +132,7 @@ const HomePage = () => {
                   {currentSlide === 2 && (
                     <div className="animate-fade-in" key="slide-3">
                       <h2 className="text-2xl lg:text-5xl font-extrabold leading-tight mb-3 lg:mb-4">
-                        Dibantu ingin bantuan jadi lebih mudah dijangkau.
+                        DiBantu ingin bantuan jadi lebih mudah dijangkau.
                       </h2>
                       <p className="text-green-50 text-sm lg:text-xl leading-snug">
                         Untuk rumah yang perlu dirawat, keluarga yang butuh solusi, dan mitra lokal yang membutuhkan peluang kerja.
@@ -159,7 +159,7 @@ const HomePage = () => {
                 <div className="absolute right-0 bottom-0 lg:right-4 w-44 h-56 lg:w-96 lg:h-[28rem] flex items-end justify-end">
                   <img
                     src={TECHNICIAN_IMG}
-                    alt="Mitra Dibantu"
+                    alt="Mitra DiBantu"
                     className="h-full w-auto object-contain object-bottom drop-shadow-2xl"
                     data-testid="hero-technician-image"
                   />

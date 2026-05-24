@@ -56,7 +56,7 @@ const BantuinFormPage = () => {
       if (combined.includes(keyword)) {
         return {
           valid: false,
-          message: 'Layanan ini tersedia di kategori utama Dibantu. Silakan pilih kategori yang sesuai agar ditangani oleh teknisi profesional.'
+          message: 'Layanan ini tersedia di kategori utama DiBantu. Silakan pilih kategori yang sesuai agar ditangani oleh teknisi profesional.'
         };
       }
     }

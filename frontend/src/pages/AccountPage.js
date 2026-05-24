@@ -158,7 +158,7 @@ const AccountPage = () => {
         </button>
 
         <p className="text-center text-xs text-gray-400 pt-2">
-          Dibantu v1.0.0 • Jakarta, Indonesia
+          DiBantu v1.0.0 • Jakarta, Indonesia
         </p>
       </div>
 
