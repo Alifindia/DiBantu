@@ -30,6 +30,19 @@ const ActivityFeed = () => {
     return `${hrs} jam lalu`;
   };
 
+  // Anonymize customer name - only show title + area
+  const anonymizeName = (name, area) => {
+    const titles = ['Pak', 'Bu', 'Mbak', 'Mas'];
+    const firstWord = name.split(' ')[0];
+    const title = ['Ibu', 'Bu'].some(t => firstWord.includes(t)) ? 'Bu' 
+                  : ['Pak', 'Bapak'].some(t => firstWord.includes(t)) ? 'Pak'
+                  : ['Mbak'].some(t => firstWord.includes(t)) ? 'Mbak'
+                  : 'Pak';
+    // Extract area without "Depok"
+    const shortArea = area.replace('Depok ', '').split(' ')[0];
+    return `${title} ${shortArea}`;
+  };
+
   const getStatusBadge = (status) => {
     if (status === 'in_progress') return { label: 'Sedang Berlangsung', color: 'bg-orange-100 text-orange-700', dot: 'bg-orange-500' };
     if (status === 'completed') return { label: 'Selesai', color: 'bg-green-100 text-green-700', dot: 'bg-green-500' };
@@ -85,46 +98,36 @@ const ActivityFeed = () => {
         </div>
       </div>
 
-      {/* Activity list - scrollable horizontal on mobile, grid 2-col on desktop */}
-      <div className="lg:hidden flex gap-3 overflow-x-auto pb-3 -mx-4 px-4 snap-x">
-        {activities.slice(0, 8).map((act) => {
-          const badge = getStatusBadge(act.status);
+      {/* Activity list - Privacy friendly format */}
+      <div className="space-y-2 lg:space-y-3">
+        {activities.slice(0, 6).map((act) => {
+          const anonymousName = anonymizeName(act.customer_name, act.area);
+          const shortArea = act.area.split(' ')[0]; // Just "Margonda", "Beji", etc
           return (
             <div
               key={act.id}
-              className="bg-white rounded-xl shadow-sm p-3 min-w-[280px] snap-start border border-gray-100"
+              className="bg-white rounded-xl shadow-sm p-3 lg:p-4 border border-gray-100 hover:shadow-md transition"
               data-testid={`activity-${act.id}`}
             >
-              <div className="flex items-start gap-2 mb-2">
-                <div className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold ${badge.color}`}>
-                  <span className={`w-1.5 h-1.5 rounded-full ${badge.dot} animate-pulse`}></span>
-                  {badge.label}
+              <div className="flex items-center gap-3">
+                {/* Green status indicator */}
+                <div className="flex-shrink-0">
+                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                 </div>
-                <div className="ml-auto flex items-center gap-1 text-[10px] text-gray-500">
-                  <Clock size={10} />
-                  {formatTime(act.minutes_ago)}
-                </div>
-              </div>
-
-              <div className="flex items-center gap-2 mb-2">
-                <img src={act.customer_avatar} alt={act.customer_name} className="w-8 h-8 rounded-full object-cover" />
+                
+                {/* Main content */}
                 <div className="flex-1 min-w-0">
-                  <p className="text-xs font-semibold text-gray-900 truncate">
-                    <span className="text-green-700">{act.customer_name}</span> memesan
+                  <p className="text-sm lg:text-base font-semibold text-gray-900">
+                    🟢 {anonymousName} baru menyelesaikan service {act.service_name}
                   </p>
-                  <p className="text-[11px] text-gray-600 truncate">{act.service_name}</p>
-                </div>
-              </div>
-
-              <div className="border-t border-gray-100 pt-2 flex items-center gap-2">
-                <img src={act.technician_photo} alt={act.technician_name} className="w-6 h-6 rounded-full" />
-                <div className="flex-1 min-w-0">
-                  <p className="text-[10px] text-gray-500">Teknisi</p>
-                  <p className="text-[11px] font-semibold text-gray-900 truncate">{act.technician_name}</p>
-                </div>
-                <div className="flex items-center gap-1 text-[10px] text-gray-500 flex-shrink-0">
-                  <MapPin size={10} />
-                  <span className="truncate max-w-[60px]">{act.area.replace('Depok ', '')}</span>
+                  <div className="flex items-center gap-3 mt-1 text-xs lg:text-sm text-gray-500">
+                    <span className="flex items-center gap-1">
+                      <MapPin size={12} className="text-green-600" />
+                      {shortArea}
+                    </span>
+                    <span>•</span>
+                    <span>{formatTime(act.minutes_ago)}</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -132,51 +135,16 @@ const ActivityFeed = () => {
         })}
       </div>
 
-      {/* Desktop grid */}
-      <div className="hidden lg:grid grid-cols-2 xl:grid-cols-3 gap-4">
-        {activities.slice(0, 9).map((act) => {
-          const badge = getStatusBadge(act.status);
-          return (
-            <div
-              key={act.id}
-              className="bg-white rounded-2xl shadow-sm hover:shadow-md p-5 border border-gray-100 transition card-hover"
-              data-testid={`activity-desktop-${act.id}`}
-            >
-              <div className="flex items-center justify-between mb-3">
-                <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold ${badge.color}`}>
-                  <span className={`w-2 h-2 rounded-full ${badge.dot} animate-pulse`}></span>
-                  {badge.label}
-                </div>
-                <div className="flex items-center gap-1 text-xs text-gray-500">
-                  <Clock size={12} />
-                  {formatTime(act.minutes_ago)}
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3 mb-3">
-                <img src={act.customer_avatar} alt={act.customer_name} className="w-10 h-10 rounded-full object-cover" />
-                <div className="flex-1 min-w-0">
-                  <p className="text-sm font-semibold text-gray-900">
-                    <span className="text-green-700">{act.customer_name}</span> memesan
-                  </p>
-                  <p className="text-sm text-gray-600 truncate">{act.service_name}</p>
-                </div>
-              </div>
-
-              <div className="border-t border-gray-100 pt-3 flex items-center gap-3">
-                <img src={act.technician_photo} alt={act.technician_name} className="w-8 h-8 rounded-full" />
-                <div className="flex-1 min-w-0">
-                  <p className="text-xs text-gray-500">Teknisi</p>
-                  <p className="text-sm font-semibold text-gray-900 truncate">{act.technician_name}</p>
-                </div>
-                <div className="flex items-center gap-1 text-xs text-gray-500 flex-shrink-0 bg-gray-50 px-2 py-1 rounded-full">
-                  <MapPin size={11} />
-                  <span>{act.area}</span>
-                </div>
-              </div>
-            </div>
-          );
-        })}
+      {/* Bottom stats - more social proof */}
+      <div className="mt-4 lg:mt-6 grid grid-cols-2 gap-3">
+        <div className="bg-green-50 border border-green-200 rounded-xl p-3 lg:p-4">
+          <p className="text-2xl lg:text-3xl font-bold text-green-700">42</p>
+          <p className="text-xs lg:text-sm text-gray-600 mt-1">teknisi aktif di area Anda</p>
+        </div>
+        <div className="bg-blue-50 border border-blue-200 rounded-xl p-3 lg:p-4">
+          <p className="text-2xl lg:text-3xl font-bold text-blue-700">{activities.length}</p>
+          <p className="text-xs lg:text-sm text-gray-600 mt-1">layanan selesai hari ini</p>
+        </div>
       </div>
     </section>
   );

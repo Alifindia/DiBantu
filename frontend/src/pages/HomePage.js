@@ -4,6 +4,8 @@ import { Search, Snowflake, Zap, Droplets, Sparkles, Dog, Bug, Camera, ShieldChe
 import BottomNav from '../components/BottomNav';
 import DesktopNav from '../components/DesktopNav';
 import ActivityFeed from '../components/ActivityFeed';
+import ReviewFeed from '../components/ReviewFeed';
+import TechniciansOnline from '../components/TechniciansOnline';
 import { getCategories, getTechnicians } from '../api/api';
 
 const TECHNICIAN_IMG = 'https://customer-assets.emergentagent.com/job_react-web-builder-5/artifacts/k4uicyvh_127940-removebg-preview.png';
@@ -185,8 +187,14 @@ const HomePage = () => {
           })}
         </section>
 
-        {/* Activity Feed - Social Proof */}
+        {/* Activity Feed - Privacy-friendly */}
         <ActivityFeed />
+
+        {/* Technicians Online - For Conversion */}
+        <TechniciansOnline />
+
+        {/* Review Feed - Real-time Social Proof */}
+        <ReviewFeed />
 
         {/* Nearby Technicians */}
         <section className="mb-8">
