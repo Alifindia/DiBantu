@@ -26,7 +26,7 @@ const DesktopNav = () => {
           <img 
             src="/assets/logo-dibantu.png" 
             alt="DiBantu" 
-            className="h-8 w-auto"
+            className="h-10 w-auto"
           />
           <p className="text-gray-500 mt-1 text-xs lg:text-sm">Cari bantuan terpercaya, cepat, dan aman</p>
         </button>

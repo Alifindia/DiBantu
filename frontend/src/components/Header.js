@@ -38,7 +38,7 @@ const Header = ({ title, subtitle, showBack = false, className = '' }) => {
           <img 
             src="/assets/logo-dibantu.png" 
             alt="DiBantu" 
-            className="h-6 w-auto"
+            className="h-8 w-auto"
           />
           <p className="text-xs text-gray-500 mt-0.5">Cari bantuan terpercaya, cepat, dan aman</p>
         </div>

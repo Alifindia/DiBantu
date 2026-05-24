@@ -73,7 +73,7 @@ const HomePage = () => {
       <img 
         src="/assets/logo-dibantu.png" 
         alt="DiBantu" 
-        className={size === 'large' ? 'h-10 lg:h-12 w-auto' : 'h-8 w-auto'}
+        className={size === 'large' ? 'h-12 lg:h-16 w-auto' : 'h-10 w-auto'}
       />
       <p className={`text-gray-500 mt-1 ${size === 'large' ? 'text-sm lg:text-base' : 'text-xs lg:text-sm'}`}>
         Cari bantuan terpercaya, cepat, dan aman
