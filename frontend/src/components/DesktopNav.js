@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Bell, MapPin, Sparkles } from 'lucide-react';
+import { Bell, MapPin } from 'lucide-react';
 
 const DesktopNav = () => {
   const navigate = useNavigate();
@@ -30,36 +30,9 @@ const DesktopNav = () => {
           <p className="text-gray-500 mt-1 text-xs lg:text-sm">Jasa rumah & digital terpercaya</p>
         </button>
 
-        {/* Nav */}
+        {/* Nav - removed Bantuin from here */}
         <nav className="flex items-center gap-6">
-          {navItems.slice(0, 2).map(item => (
-            <button
-              key={item.path}
-              onClick={() => navigate(item.path)}
-              className={`font-medium transition ${
-                isActive(item.path) ? 'text-green-700 font-semibold' : 'text-gray-600 hover:text-green-700'
-              }`}
-              data-testid={item.testId}
-            >
-              {item.label}
-            </button>
-          ))}
-
-          {/* Bantuin highlighted CTA */}
-          <button
-            onClick={() => navigate('/bantuin')}
-            className={`flex items-center gap-1.5 font-bold px-4 py-2 rounded-full transition shadow-md hover:shadow-lg hover:scale-105 ${
-              isActive('/bantuin')
-                ? 'bg-gradient-to-br from-green-600 to-emerald-700 text-white ring-4 ring-green-200'
-                : 'bg-gradient-to-br from-green-700 to-emerald-600 text-white'
-            }`}
-            data-testid="desktop-nav-bantuin"
-          >
-            <Sparkles size={16} strokeWidth={2.5} />
-            Bantuin
-          </button>
-
-          {navItems.slice(2).map(item => (
+          {navItems.map(item => (
             <button
               key={item.path}
               onClick={() => navigate(item.path)}

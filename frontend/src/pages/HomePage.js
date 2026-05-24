@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Search, Snowflake, Zap, Droplets, Sparkles, Dog, Bug, Camera, ShieldCheck, Lock, Tag, Bell, MapPin, Hammer, Truck, PawPrint } from 'lucide-react';
 import BottomNav from '../components/BottomNav';
 import DesktopNav from '../components/DesktopNav';
+import FloatingBantuinButton from '../components/FloatingBantuinButton';
 import ActivityFeed from '../components/ActivityFeed';
 import ReviewFeed from '../components/ReviewFeed';
 import TechniciansOnline from '../components/TechniciansOnline';
@@ -265,6 +266,7 @@ const HomePage = () => {
         </section>
       </div>
 
+      <FloatingBantuinButton />
       <BottomNav />
     </div>
   );
