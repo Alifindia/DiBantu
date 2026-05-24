@@ -6,7 +6,6 @@ import DesktopNav from '../components/DesktopNav';
 import FloatingBantuinButton from '../components/FloatingBantuinButton';
 import ActivityFeed from '../components/ActivityFeed';
 import ReviewFeed from '../components/ReviewFeed';
-import TechniciansOnline from '../components/TechniciansOnline';
 import { getCategories, getTechnicians } from '../api/api';
 
 const TECHNICIAN_IMG = 'https://customer-assets.emergentagent.com/job_react-web-builder-5/artifacts/k4uicyvh_127940-removebg-preview.png';
@@ -246,9 +245,6 @@ const HomePage = () => {
 
         {/* Activity Feed - Privacy-friendly */}
         <ActivityFeed />
-
-        {/* Technicians Online - For Conversion */}
-        <TechniciansOnline />
 
         {/* Review Feed - Real-time Social Proof */}
         <ReviewFeed />
